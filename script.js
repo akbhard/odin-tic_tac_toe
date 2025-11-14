@@ -1,8 +1,13 @@
-const gameBoard = (() => {
+const resetGame = () => {
+        window.location.reload();
+    }
+
+const gameBoard = (function (){
     let player = ""
     let positions = ["", "", "", "", "", "", "", "", ""]
     let isWinnerDeclared = false;
     const board = document.getElementById("game-board")
+    
 
     const updateSquare = () => {
         if (player === "" || player === "O") {
@@ -38,8 +43,7 @@ const gameBoard = (() => {
                 gameBoard.positions[currentWinCondition[0]]=== gameBoard.positions[currentWinCondition[1]] &&
                 gameBoard.positions[currentWinCondition[1]] === gameBoard.positions[currentWinCondition[2]]){
                     winningMessage.textContent = `${gameBoard.positions[currentWinCondition[0]]} is the winner!`
-                    isWinnerDeclared = true;
-                    // console.log(`${gameBoard.positions[currentWinCondition[0]]} is the winner!`)
+                    isWinnerDeclared = true
             break;
             }
         }
