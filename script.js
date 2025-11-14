@@ -29,7 +29,14 @@ const gameBoard = (() => {
         square.setAttribute('class', 'square')
         square.addEventListener("click", function (){
             currentPlayer = changePlayer.updateSquare();
-            square.textContent = currentPlayer
+            if (square.textContent != ""){
+                // alert("That square has been populated you idiot")
+                changePlayer.updateSquare();
+            } else {
+                square.textContent = currentPlayer;
+                positions[index] = currentPlayer;
+                console.log(positions)
+            }
         })
 
         board.appendChild(square)
@@ -39,6 +46,3 @@ const gameBoard = (() => {
 })();
 
 gameBoard.createGameBoard();
-
-// I now need a function to allow me to switch between X player and O player, as well as track storing their moves into the array
-
